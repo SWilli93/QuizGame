@@ -15,5 +15,12 @@ while timer > 0:
         timer -= 1
 
 quiz = QuizBrain(question_bank)
-quiz.next_question()
 
+while quiz.still_has_question():
+    quiz.next_question()
+
+print("all questions were answered.")
+if quiz.high_score > (int(quiz.question_number)/2):
+    print(f"way to go! Your total score is {quiz.high_score}/{quiz.question_number}.")
+else:
+    print(f"better luck next time, your score is {quiz.score}/{quiz.question_number}.")
